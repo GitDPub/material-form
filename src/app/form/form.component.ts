@@ -25,6 +25,9 @@ export class FormComponent implements OnInit {
     console.log('correo: ', this.correo);
     console.log('contraseña: ', this.pass);
     console.log('fecha: ', this.fecha);
+
+    //contenido de formulario: formlarioEjemplo
+    console.log('Datos del formulario: ', formulario);
   }
 
 }

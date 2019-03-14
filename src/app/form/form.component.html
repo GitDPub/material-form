@@ -1,5 +1,8 @@
 <section class="signup-form">
-  <form fxLayout="column" fxLayoutAlign="center center" #formlarioEjemplo="ngForm" (ngSubmit)="onSubmit(formlarioEjemplo)">
+  <form fxLayout="column"
+        fxLayoutAlign="center center"
+        #formlarioEjemplo="ngForm"
+        (ngSubmit)="onSubmit(formlarioEjemplo)">
     <mat-form-field>
       <input
         type="email"
@@ -10,8 +13,10 @@
         email
         required
         #email="ngModel">
-      <mat-error *ngIf="email.hasError('required')">Campo vacio.</mat-error>
-      <mat-error *ngIf="!email.hasError('required')">Correo no valido.</mat-error>
+      <mat-error
+        *ngIf="email.hasError('required')">Campo vacio.</mat-error>
+      <mat-error
+        *ngIf="!email.hasError('required')">{{email.value}} Correo no valido.</mat-error>
     </mat-form-field>
     <mat-form-field hintLabel="se necesita 5 caracteres minimo.">
       <input
@@ -33,12 +38,20 @@
         placeholder="Año de nacimiento"
         [matDatepicker]="picker"
         #birthdate="ngModel"
+        required
         [max]="maxDate">
       <mat-datepicker-toggle
         matSuffix
         [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+      <mat-error
+        *ngIf="birthdate.hasError('required')">Fecha de nacimiento vacia.</mat-error>
     </mat-form-field>
-    <button type="submit" mat-raised-button color="primary">Submit</button>
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="!formlarioEjemplo.valid">
+      Registrar</button>
   </form>
 </section>
