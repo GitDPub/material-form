@@ -1,0 +1,41 @@
+<section class="signup-form">
+  <form fxLayout="column" fxLayoutAlign="center center" #formlarioEjemplo="ngForm" (ngSubmit)="onSubmit(formlarioEjemplo)">
+    <mat-form-field>
+      <input
+        type="email"
+        matInput
+        placeholder="Correo electronico"
+        ngModel
+        name="email"
+        email
+        required
+        #email="ngModel">
+      <mat-error *ngIf="email.hasError('required')">Campo vacio.</mat-error>
+      <mat-error *ngIf="!email.hasError('required')">Correo no valido.</mat-error>
+    </mat-form-field>
+    <mat-form-field hintLabel="se necesita 5 caracteres minimo.">
+      <input
+        type="password"
+        matInput
+        placeholder="Contraseña"
+        ngModel
+        name="password"
+        required
+        minlength="5"
+        #clave="ngModel">
+      <mat-error>{{clave.value}} - La contraseña debe der de minimo 5 caracteres</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Año de nacimiento"
+        [matDatepicker]="picker"
+        [max]="maxDate">
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Submit</button>
+  </form>
+</section>
