@@ -5,7 +5,7 @@
         type="email"
         matInput
         placeholder="Correo electronico"
-        ngModel
+        [(ngModel)]="correo"
         name="email"
         email
         required
@@ -18,7 +18,7 @@
         type="password"
         matInput
         placeholder="Contraseña"
-        ngModel
+        [(ngModel)]="pass"
         name="password"
         required
         minlength="5"
@@ -28,8 +28,11 @@
     <mat-form-field>
       <input
         matInput
+        [(ngModel)]="fecha"
+        [ngModelOptions]="{standalone: true}"
         placeholder="Año de nacimiento"
         [matDatepicker]="picker"
+        #birthdate="ngModel"
         [max]="maxDate">
       <mat-datepicker-toggle
         matSuffix

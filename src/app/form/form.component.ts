@@ -9,16 +9,22 @@ import { NgForm } from '@angular/forms';
 export class FormComponent implements OnInit {
 
   maxDate;
+  fecha: any;
+  correo: string;
+  pass: string;
 
   constructor() { }
 
   ngOnInit() {
     this.maxDate = new Date();
     this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
+    this.correo = 'abc@gmail.com';
   }
 
   onSubmit(formulario: NgForm) {
-
+    console.log('correo: ', this.correo);
+    console.log('contraseña: ', this.pass);
+    console.log('fecha: ', this.fecha);
   }
 
 }
