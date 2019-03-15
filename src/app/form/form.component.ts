@@ -27,7 +27,11 @@ export class FormComponent implements OnInit {
     console.log('fecha: ', this.fecha);
 
     //contenido de formulario: formlarioEjemplo
-    console.log('Datos del formulario: ', formulario);
+    console.log('Todos los datos del formulario: ', formulario);
+    console.log('Datos del formulario: ', JSON.stringify(formulario.value, null, 2));
+    console.log('correo: email del formulario: ', formulario.value.email);
+    console.log('contraseña: password del formulario: ', formulario.value.password);
+    console.log('fecha: date del formulario: ', formulario.value.date);
   }
 
 }
